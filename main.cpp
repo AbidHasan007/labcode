@@ -4,10 +4,11 @@ using namespace std;
 
 int main ()
 {
-    fstream my_file;
+    fstream my_file,my_file2;
     char ch;
     my_file.open("read.txt",ios::in);
-    if(!my_file)
+    my_file2.open("read2.txt", ios::out);
+    if(!my_file|| !my_file2)
     {
         cout<<"No such file";
     }else{
@@ -19,19 +20,11 @@ int main ()
              {
                  break;
              }
-             cout<<ch;
+             my_file2<<ch;
          }
          my_file.close();
+         my_file2.close();
 
     }
-    my_file.open("read.txt", ios::out);
-	if (!my_file) {
-		cout << "no such file!";
-	}
-	else {
-		cout << "File created successfully!";
-		my_file << "Go ";
-		my_file.close();
-	}
     return 0;
 }
